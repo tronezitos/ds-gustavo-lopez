@@ -1,8 +1,18 @@
+import java.util.Scanner;
+
 public class Numeros {
      public static void main(String[] args) {
-        System.out.println(9 + 10);
-        System.out.println(10 - 5);
-        System.out.println(3 * 20);
-        System.out.println(14 / 2);
+        Scanner a =  new Scanner(System.in);
+        System.out.println("Escolha um numero");
+        int n1 =a.nextInt();
+        
+        Scanner b = new Scanner(System.in);
+        System.out.println("Escolha outro numero");
+        int n2 =b.nextInt();
+
+        int n3 = n1 + n2;
+
+        System.out.println("A soma desses numero e " + n3);
+      
     }
 }

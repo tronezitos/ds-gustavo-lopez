@@ -40,8 +40,8 @@ public class Exercicio01 {
 
         
         double SalBruto = (Horas * Salario) * 4;
-        double INPS = SalBruto * 0.085;
         double FamiliaSal = Filhos * SalFamilia;
+        double INPS = SalBruto * 0.085;
         double IR = 0;
         double AIDS = 0;
 
@@ -53,25 +53,23 @@ public class Exercicio01 {
              IR = SalBruto * 0.08;
         }
 
-        if (Idade > 40) {
-            AIDS = SalBruto * 1.02; 
+        if (Idade >= 40) {
+            AIDS = SalBruto * 0.02;
         }
-        else if (Anos > 15) {
-            AIDS = SalBruto * 1.035;
+
+        if (Anos >= 15) {
+            AIDS = SalBruto * 0.035;
         }
-        else if (Anos <= 15) {
-            if (Anos > 30) {
-                AIDS = SalBruto * 1.015; 
-            }
-            else{
-                AIDS = 0;
+
+        if (Idade >= 35) {
+            if (Anos >= 15) {
+                AIDS = SalBruto * 0.015;
             }
         }
 
-
-        double SalLiquido = (SalBruto * INPS) * AIDS;
+        double SalLiquido = (SalBruto - INPS) + AIDS - IR;
         if (Filhos >= 1) {
-            double SalLiquidoDois = SalLiquido + SalFamilia;             
+            SalLiquido = (SalBruto - INPS) + AIDS + FamiliaSal - IR;             
         }
 
         System.out.println("nome: " + Nome);
